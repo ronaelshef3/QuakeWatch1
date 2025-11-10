@@ -2,7 +2,7 @@ ARG PY_VERSOIN=3.9-slim
 
 FROM python:${PY_VERSOIN}
 
-COPY QuakeWatch/ .
+COPY . .
 
 RUN apt-get update && apt-get install -y curl
 
