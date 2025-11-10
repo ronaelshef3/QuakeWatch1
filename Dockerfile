@@ -6,9 +6,8 @@ FROM python:${PY_VERSOIN}
 
 RUN apt-get update && apt-get install -y curl
 
-RUN     pip install -r requirements.txt  \
+RUN     pip install -r requirements.txt  
         #
-\
         #&& \
      #   mkdir  QuakeWatch
 #COPY QuakeWatch/ .
