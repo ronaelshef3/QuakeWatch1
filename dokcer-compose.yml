@@ -1,0 +1,15 @@
+services:
+  quakewatch:
+    image: aharonshefer03/quakewatch:${APP_TAG:-v0.3}
+
+    ports:
+      - "${HOST_PORT:-5000}:${CONTAINER_PORT:-5000}"
+
+    environment:
+      # אלו משתני סביבה שיוזרקו לתוך הקונטיינר
+      - DATABASE_URL=${DB_URL}
+      - NODE_ENV=${APP_ENV}
+
+
+    mem_limit: 512m
+    cpus: 0.5
