@@ -46,7 +46,7 @@ jobs:
 
           path: ops-repo
 
-          token: ${{ secrets.OPS_REPO_PAT }}
+          token: ${{ secrets.GIT_OPS }}
 
 
 
