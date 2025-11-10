@@ -32,6 +32,8 @@ jobs:
         with:
           context: .
 
+          file: ./service/Dockerfile
+
           push: true
 
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/quakewatch:v0.${{ github.run_number }}
