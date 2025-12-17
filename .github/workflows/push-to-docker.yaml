@@ -47,6 +47,8 @@ jobs:
           path: ops-repo
 
           token: ${{ secrets.GITops }}
+          ssh-strict: true
+          persist-credentials: true
 
 
 
