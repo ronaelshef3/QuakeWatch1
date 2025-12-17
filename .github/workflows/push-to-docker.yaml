@@ -48,7 +48,7 @@ jobs:
 
 
 
-          token: ${{secrets.git-ops1}}
+          token: ${{secrets.GIT_OPS}}
           ssh-strict: true
           persist-credentials: true
 
