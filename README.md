@@ -29,38 +29,34 @@ QuakeWatch/
     ├── main_page.html      # Home page content
     └── graph_dashboard.html# Dashboard view with graphs and earthquake details
 ```
+## 🛠 CI/CD Workflows (GitHub Actions)
 
-## Installation
+### 1. Continuous Integration (CI)
+The testing suite ensures code stability across environments:
+* **Triggers:** Runs on every push to any branch.
+* **Matrix Strategy:** Validates code on Python versions 3.9, 3.11, and 3.12.
+* **Multi-Platform:** Tested on both `ubuntu-latest` and `windows-latest`.
+* **Automated QA:** Executes tests using `pytest`.
 
-### Locally
+### 2. Continuous Delivery & GitOps Sync (CD)
+On merges to `main` or `master`, the pipeline automates the release:
+* **Docker Build:** Creates a container image and pushes it to Docker Hub.
+* **Dynamic Tagging:** Tags the image with `v0.${{ github.run_number }}`.
+* **GitOps Update:** Automatically clones the **GITops** repository and updates the `image.tag` in `values.yaml` using `yq`.
 
-1. **Clone the Repository:**
+## 🔐 Required Secrets
+To enable the pipeline, configure the following GitHub Secrets:
+* `DOCKERHUB_USERNAME` / `DOCKERHUB_TOKEN`.
+* `GIT_OPS`: Personal Access Token (PAT) for the Ops repository.
 
-   ```bash
-   git clone https://github.com/yourusername/QuakeWatch.git
-   cd QuakeWatch
-   ```
+## 💻 Local Installation
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-2. **Set Up a Virtual Environment (optional but recommended):**
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install Dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Running the Application Locally
-
-1. **Start the Flask Application:**
-
-   ```bash
-   python app.py
-   ```
+# Start the application
+python app.py
+ ```
 
 2. **Access the Application:**
 
