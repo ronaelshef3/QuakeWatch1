@@ -11,7 +11,7 @@ on:
 
 permissions: write-all
 jobs:
-  build-and-deploy:
+  test-conflict :
     runs-on: ubuntu-latest
 
     steps:
