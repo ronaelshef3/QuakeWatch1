@@ -61,15 +61,12 @@ jobs:
           sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && sudo chmod +x /usr/bin/yq
 
           NEW_TAG="v0.${{ github.run_number }}"
-          # <--- נניח שזה הנתיב לקובץ הראשי בריפו ה-Ops
           VALUES_FILE_PATH="ops-repo/my-app-chart/values.yaml"
 
-          # נעדכן את השדה image.tag בתוך הקובץ
           yq -i ".image.tag = \"$NEW_TAG\"" $VALUES_FILE_PATH
 
       - name: Commit updated values.yaml to Ops repo
         run: |
-          # ניכנס לתיקיית ריפו ה-Ops ששכפלנו
           cd ops-repo
 
 
@@ -77,7 +74,6 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
 
-          # הנתיב כאן הוא יחסי ל-ops-repo
           git add my-app-chart/values.yaml
 
 
